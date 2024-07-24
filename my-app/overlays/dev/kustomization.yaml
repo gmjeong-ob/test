@@ -1,4 +1,4 @@
-namespace: dev-gmjeong
+namespace: gmjeong-dev
 replicas:
 - count: 1
   name: nginx
@@ -9,7 +9,7 @@ images:
 resources:
 - ../../base
 
-namePrefix: dev-
+nameSuffix: "-dev"
 patches:
 - target:
     kind: Ingress
@@ -17,7 +17,7 @@ patches:
   patch: |-
     - op: replace
       path: /spec/rules/0/host
-      value: dev-nginx.gmjeong.com
+      value: nginx-dev.gmjeong.com
     - op: replace
       path: /spec/tls/0/hosts/0
-      value: dev-nginx.gmjeong.com
+      value: nginx-dev.gmjeong.com
