@@ -1,0 +1,6 @@
+namespace: stg-gmjeong
+replicas:
+- count: 2
+  name: nginx-deployment
+resources:
+- ../../base

@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dev-config-map
+  namespace: gmjeong-dev
+data:
+  database_url: "jdbc:postgresql://defaultdb:5432/my_app"
+  log_level: "info" # 로그 레벨

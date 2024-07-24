@@ -1,0 +1,16 @@
+resources:
+  - namespace.yaml
+  - secret.yaml
+  - clusterissuer.yaml
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml
+configMapGenerator:
+- name: prod-configmap-1
+  files:
+  - application.properties
+generatorOptions:
+  disableNameSuffixHash: true
+  annotations:
+    note: kustomize-generated
+

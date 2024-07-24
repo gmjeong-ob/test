@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/ClusterIssuer: gmjeong-issuer
+    kubernetes.io/ingress.provider: contour
+  labels:
+    app: nginx
+  name: ing-nginx
+  namespace: gmjeong-dev
+spec:
+  ingressClassName: contour
+  rules:
+  - host: nginx.gmjeong.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: nginx-service
+            port:
+              number: 80
+        path: /
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - nginx.gmjeong.com
+    secretName: gmjeong-secret
